@@ -12,7 +12,7 @@ using namespace std;
 \param [in] data The data set that will be searched
 \returns location of key if found or -1 if not found
 */
-int linearSearch(auto data, auto key);//prototype
+void insertionSort(auto& data);//prototype
 
 
 
@@ -44,40 +44,26 @@ int main()
   }
  
    cout<<endl<<"To end input type the #-character (followed by Enter)"<<endl<<endl;
-  cout<<"Enter a value to search for: ";
-
-
-   cin>>search_key;
- 
-    while(search_key != "#")//perform searches until sentinel entered
-    {
-        result = linearSearch(inputs,search_key);
-
-        cout<<"  '"<<search_key<<"' was ";
-
-        if (result == -1)
-          cout<<"not found";
-        else
-          cout<<"found at index "<<result;
-
-
-        cout<<endl<<endl<<"Enter a value to search for: ";
-        cin>>search_key; 
-    }
-
-   cout<<endl<<"Program \"search it\" is now finished."<<endl<<endl;
+  insertionSort(inputs);
+cout<<"sorted data:" << endl;
+for (int k = 0; k< inputs.size(); k++)
+  {
+      cout<<input[k]<<endl;
+}
 
     return 0;
 }
-
-int linearSearch(auto data, auto key)
+void insertionSort (auto& data)
 {   
-     for (int i = 0; i < data.size(); i ++)
+     for (int i = 1; i < data.size(); i ++)
     {
-        if (data[i] == key) //we found key
+        int j = i + 1; //inserting element at j index
+      while (j > 0 && data[j - 1] > data[j])
          {
-           return i; //return its location
-           }
+             swap(data[j],data[j -1];
+             j = j - 1;
+         } //endwhile
+           
       }//endfor
-     return -1; //element not found
-  }
+    }//end sort
+    
